@@ -20,7 +20,10 @@ lazy val hz = crossProject.in(file(".")).
     // Add JVM-specific settings here
   ).
   jsSettings(
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.8.2"
+    libraryDependencies ++= Seq(
+     "org.scala-js" %%% "scalajs-dom" % "0.8.2",
+     "com.lihaoyi"  %%% "scalatags"   % "0.6.0"
+    )
   )
 
 lazy val hzJVM = hz.jvm
