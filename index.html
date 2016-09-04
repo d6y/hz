@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Habitable Zone</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+  <style type="text/css" media="all">
+    * {
+      background-color: black;
+      color: white;
+      font-family: 'Slabo 27px', serif;
+    }
+    #system {
+      xbackground-color: silver;
+      xcolor: black;
+      xpadding: 0px 5px;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>The habitable zone around <span id="system">The Solar System</span></h1>
+
+<div>
+<svg id="svg-content" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 200 200">
+  <g id="hz-group" style="fill: green; stroke: green">
+    <path d="M 100 100 m 0 -50 a 50 50 0 1 0 1 0 Z m 0 30 a 20 20 0 1 1 -1 0 Z"/>
+  </g>
+</svg> 
+</div>
+
+- http://stackoverflow.com/questions/8193675/draw-a-hollow-circle-in-svg#8193760
+- http://my.safaribooksonline.com/book/web-development/xml/9781491945308/1dot-getting-started/graphics_systems_section_html#X2ludGVybmFsX0h0bWxWaWV3P3htbGlkPTk3ODE0OTE5NDUzMDglMkZjb252ZXJ0X2FyY190b19zdmdfc2VjdGlvbl9odG1sJnF1ZXJ5PQ==
+
+
+<script type="text/javascript" src="js/target/scala-2.11/hz-fastopt.js"></script>
+<script>
+  hz.ScalaJSExample().main(document.getElementById('svg-content'));
+</script>
+</body>
+</html>
