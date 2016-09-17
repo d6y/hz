@@ -18,13 +18,15 @@ final case class SolarRadius(value: Double) extends AnyVal {
 
 final case class AU(value: Double) extends AnyVal {
   def *(n: Double): AU = AU(value * n)
+  def *(e: Eccentricity): AU = AU(value * e.value)
 }
 
 
 final case class Degree(value: Double) extends AnyVal
 
 final case class Eccentricity(value: Double) {
-  def *(n: Eccentricity): Eccentricity = Eccentricity(value * n.value)
+  def squared = Eccentricity(value * value)
+  def *(n: Double) = Eccentricity(value * n)
 }
 
 object UnitOps {

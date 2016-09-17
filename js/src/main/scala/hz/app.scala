@@ -20,19 +20,22 @@ object App extends SVGPrimitives {
     def scaled: Double = au.value * auScaleFactor
   }
 
-  // Astronimical bodies are tiny compared to the size of the system,
-  // so we enlarge when drawing
+  // Astronimical bodies are tiny compared to the size of the system, so we exaggerate when drawing
   implicit class enlargeStarSize(r: SolarRadius) {
-    def enlarged: SolarRadius = r * 10
+    def exaggerate: SolarRadius = r * 10
   }
 
-  val hz = annulus( AU(0.99).scaled, AU(1.688).scaled )
+  val hz = annulus( AU(0.95).scaled, AU(1.66).scaled )
   svgElement.appendChild(hz.render)
 
-  val star = ellipse( SolarRadius(1).enlarged.asAU.scaled, SolarRadius(1).enlarged.asAU.scaled, Degree(0), cssStyle="fill: yellow")
+  val star = ellipse( SolarRadius(1).exaggerate.asAU.scaled, SolarRadius(1).exaggerate.asAU.scaled, 0d, Degree(0), cssStyle="fill: yellow")
   svgElement.appendChild(star.render)
 
-  val marsOrbit = ellipse( AU(1.523).scaled, AU(1.516).scaled, Degree(-24) )
+  val marsOrbit = ellipse(
+    Systems.mars.semiMajorAxis.scaled,
+    Systems.mars.semiMinorAxis.scaled,
+    Systems.mars.f.scaled,
+    Degree(-24) )
   svgElement.appendChild(marsOrbit.render)
 
   }

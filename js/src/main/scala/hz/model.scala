@@ -70,7 +70,11 @@ final case class Planet(
 ) {
 
   import UnitOps._
-  // From Table 2.1, p. 59 of Fleisch & Kregenow (2012) _A students guide to the Mathematics of Astronomy_.
-  lazy val semiMinorAxis: AU = semiMajorAxis * Math.sqrt( 1d - (e * e) )
+
+  // From Table 2.1, p. 59 of Fleisch & Kregenow (2012)
+  lazy val semiMinorAxis: AU = semiMajorAxis * Math.sqrt( 1d - e.squared )
+
+  // Ibid.
+  lazy val f: AU = semiMajorAxis * e
 }
 

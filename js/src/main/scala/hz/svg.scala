@@ -11,13 +11,14 @@ trait SVGPrimitives {
   def ellipse(
     xRadius  : Double,
     yRadius  : Double,
+    x        : Double,
     rotation : Degree,
     cssStyle : String = "stroke: white; stroke-width: 0.1; fill: none"
   ) = {
     import svgAttrs.{style,cx,cy,rx,ry,transform}, svgTags.{ellipse => svgEllipse}
     svgEllipse(
-      transform := s"rotate(${rotation.value} 0 0)",
-      cx := 0,
+      transform := s"rotate(${rotation.value} $x 0)",
+      cx := x,
       cy := 0,
       rx := xRadius,
       ry := yRadius,
