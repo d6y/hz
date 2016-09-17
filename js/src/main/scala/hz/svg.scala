@@ -12,7 +12,7 @@ trait SVGPrimitives {
     xRadius  : Double,
     yRadius  : Double,
     rotation : Degree,
-    cssStyle : String = "stroke : white; fill : none"
+    cssStyle : String = "stroke: white; stroke-width: 0.1; fill: none"
   ) = {
     import svgAttrs.{style,cx,cy,rx,ry,transform}, svgTags.{ellipse => svgEllipse}
     svgEllipse(
@@ -46,19 +46,17 @@ trait SVGPrimitives {
   
   }}}
 
-  Thank you: http://stackoverflow.com/questions/8193675/draw-a-hollow-circle-in-svg#8193760
   */
   def annulus(
     inner    : Double,
     outer    : Double,
-    cssStyle : String = "fill : green"
+    cssStyle : String = "fill: green"
   ) = {
-    import svgAttrs.{style,d}, svgTags.{g, path}
+    import svgAttrs.{style,d,cx,cy,r}, svgTags.{g, circle}
     g(
       style := cssStyle,
-      path(
-        d := s"M 0 0 m 0 ${-1 * outer} a $outer $outer 0 1 0 1 0 Z m 0 ${outer - inner} a $inner $inner 0 1 1 -1 0 Z"
-    )
+      circle(cx := 0, cy := 0, r := outer),
+      circle(cx := 0, cy := 0, r := inner, style := "fill: black")
     )
   }
 }

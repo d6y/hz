@@ -67,5 +67,10 @@ final case class Planet(
   name          : NonEmptyList[Name[Planet]],
   semiMajorAxis : AU,
   e             : Eccentricity
-)
+) {
+
+  import UnitOps._
+  // From Table 2.1, p. 59 of Fleisch & Kregenow (2012) _A students guide to the Mathematics of Astronomy_.
+  lazy val semiMinorAxis: AU = semiMajorAxis * Math.sqrt( 1d - (e * e) )
+}
 

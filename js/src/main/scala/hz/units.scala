@@ -10,22 +10,26 @@ final case class Kilogram(value: Double) extends AnyVal
 final case class JupiterMass(value: Double) extends AnyVal
 final case class SolarMass(value: Double) extends AnyVal
 
-final case class Metre(value: Double) extends AnyVal
 final case class JupiterRadius(value: Double) extends AnyVal
-final case class SolarRadius(value: Double) extends AnyVal
-final case class AU(value: Double) extends AnyVal
+final case class SolarRadius(value: Double) extends AnyVal {
+  def asAU: AU = AU(value * 0.00465047) // https://en.wikipedia.org/wiki/Solar_radius (17 Sep 2016)
+  def *(n: Double): SolarRadius = SolarRadius(value * n)
+}
+
+final case class AU(value: Double) extends AnyVal {
+  def *(n: Double): AU = AU(value * n)
+}
+
 
 final case class Degree(value: Double) extends AnyVal
 
-/*
-https://github.com/hannorein/oec_outreach
+final case class Eccentricity(value: Double) {
+  def *(n: Eccentricity): Eccentricity = Eccentricity(value * n.value)
+}
 
-Constant used in catalogue 	Definition in SI units
-Jupiter mass 	1.8991766e+27 kg
-Solarmass 	1.9891e+30 kg
-Jupiter radius 	69911000 m
-Solarradius 	6.96e+08 m
-*/
-
-final case class Eccentricity(value: Double)
+object UnitOps {
+  implicit class DoubleOps(n: Double) {
+    def -(e: Eccentricity): Double = n - e.value
+  }
+}
 
