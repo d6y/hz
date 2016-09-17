@@ -15,6 +15,8 @@ final case class JupiterRadius(value: Double) extends AnyVal
 final case class SolarRadius(value: Double) extends AnyVal
 final case class AU(value: Double) extends AnyVal
 
+final case class Degree(value: Double) extends AnyVal
+
 /*
 https://github.com/hannorein/oec_outreach
 

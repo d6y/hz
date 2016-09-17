@@ -13,8 +13,8 @@ object App extends SVGPrimitives {
   val hz = annulus(30, 80)
   svgElement.appendChild(hz.render)
 
-  val earthOrbit = ellipse(40,45)
-  svgElement.appendChild(earthOrbit.render)
+  val marsOrbit = ellipse(40,45, Degree(-24))
+  svgElement.appendChild(marsOrbit.render)
 
   }
 }
