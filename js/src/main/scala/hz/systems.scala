@@ -7,60 +7,59 @@ object Systems {
   // Values from https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue/blob/master/systems/Sun.xml
   // as of commit 6735e0522e9c5152260d8a3b492d04ebd19c7ef0 (11 Aug 2016)
 
-  private val mercury = Planet(
+ val mercury = Planet(
     name = Name.of("Mercury"),
     semiMajorAxis = AU(0.38709843),
     e = Eccentricity(0.20563661)
   )
 
-  private val venus = Planet(
+ val venus = Planet(
     name = Name.of("Venus"),
     semiMajorAxis = AU(0.72332102),
     e = Eccentricity(0.00676399)
   )
 
-  private val earth = Planet(
+ val earth = Planet(
     name = Name.of("Earth"),
     semiMajorAxis = AU(1.00000018),
     e = Eccentricity(0.01673163)
   )
 
-  private val mars = Planet(
+ val mars = Planet(
     name = Name.of("Mars"),
     semiMajorAxis = AU(1.52371243),
     e = Eccentricity(0.09336511)
   )
 
-  private val jupiter = Planet(
+ val jupiter = Planet(
     name = Name.of("Jupiter"),
     semiMajorAxis = AU(5.20248019),
     e = Eccentricity(0.04853590)
   )
 
-  private val saturn = Planet(
+ val saturn = Planet(
     name = Name.of("Saturn"),
     semiMajorAxis = AU(9.54149883),
     e = Eccentricity(0.05550825)
   )
 
-  private val uranus = Planet(
+ val uranus = Planet(
     name = Name.of("Uranus"),
     semiMajorAxis = AU(19.18797948),
     e = Eccentricity(0.04685740)
   )
 
-  private val neptune = Planet(
+ val neptune = Planet(
     name = Name.of("Neptune"),
     semiMajorAxis = AU(30.06952752),
     e = Eccentricity(0.00895439)
   )
 
-  private val pluto = Planet(
+ val pluto = Planet(
     name = Name.of("Pluto"),
     semiMajorAxis = AU(39.48686035),
     e = Eccentricity(0.24885238)
   )
-
 
   val sun = 
     System(
