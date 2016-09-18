@@ -44,7 +44,6 @@ object SpectralType {
   case class C(t: temperature.Temperature, l: luminosity.Luminosity) extends MK
 }
 
-
 final case class Name[T](value: String)
 
 object Name {
@@ -67,6 +66,7 @@ final case class Planet(
   name          : NonEmptyList[Name[Planet]],
   semiMajorAxis : AU,
   e             : Eccentricity,
+  radius        : JupiterRadius,
   periastron    : Degree,
   longitude     : Degree
 ) {

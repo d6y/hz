@@ -11,6 +11,7 @@ object Systems {
     name = Name.of("Mercury"),
     semiMajorAxis = AU(0.38709843),
     e = Eccentricity(0.20563661),
+    radius = JupiterRadius(0.034901518),
     periastron = Degree(77.45771895),
     longitude = Degree(252.25166724)
   )
@@ -19,6 +20,7 @@ object Systems {
     name = Name.of("Venus"),
     semiMajorAxis = AU(0.72332102),
     e = Eccentricity(0.00676399),
+    radius = JupiterRadius(0.08656491),
     periastron = Degree(131.76755713),
     longitude = Degree(181.97970850)
   )
@@ -27,6 +29,7 @@ object Systems {
     name = Name.of("Earth"),
     semiMajorAxis = AU(1.00000018),
     e = Eccentricity(0.01673163),
+    radius = JupiterRadius(0.091130294),
     periastron = Degree(102.93005885),
     longitude = Degree(100.46691572)
   )
@@ -35,6 +38,7 @@ object Systems {
     name = Name.of("Mars"),
     semiMajorAxis = AU(1.52371243),
     e = Eccentricity(0.09336511),
+    radius = JupiterRadius(0.048489079),
     periastron = Degree(-23.91744784),
     longitude = Degree(-4.56813164)
   )
@@ -43,6 +47,7 @@ object Systems {
     name = Name.of("Jupiter"),
     semiMajorAxis = AU(5.20248019),
     e = Eccentricity(0.04853590),
+    radius = JupiterRadius(1),
     periastron = Degree(14.27495244),
     longitude = Degree(34.33479152)
   )
@@ -51,6 +56,7 @@ object Systems {
     name = Name.of("Saturn"),
     semiMajorAxis = AU(9.54149883),
     e = Eccentricity(0.05550825),
+    radius = JupiterRadius(0.832944),
     periastron = Degree(92.86136063),
     longitude = Degree(50.07571329)
   )
@@ -59,6 +65,7 @@ object Systems {
     name = Name.of("Uranus"),
     semiMajorAxis = AU(19.18797948),
     e = Eccentricity(0.04685740),
+    radius = JupiterRadius(0.362775),
     periastron = Degree(172.43404441),
     longitude = Degree(314.20276625)
   )
@@ -67,6 +74,7 @@ object Systems {
     name = Name.of("Neptune"),
     semiMajorAxis = AU(30.06952752),
     e = Eccentricity(0.00895439),
+    radius = JupiterRadius(0.35221925),
     periastron = Degree(46.68158724),
     longitude = Degree(304.22289287)
   )
@@ -75,6 +83,7 @@ object Systems {
     name = Name.of("Pluto"),
     semiMajorAxis = AU(39.48686035),
     e = Eccentricity(0.24885238),
+    radius = JupiterRadius(0.0164379),
     periastron = Degree(224.09702598),
     longitude = Degree(238.96535011)
   )

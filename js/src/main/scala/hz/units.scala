@@ -10,7 +10,11 @@ final case class Kilogram(value: Double) extends AnyVal
 final case class JupiterMass(value: Double) extends AnyVal
 final case class SolarMass(value: Double) extends AnyVal
 
-final case class JupiterRadius(value: Double) extends AnyVal
+final case class JupiterRadius(value: Double) extends AnyVal {
+  def asAU: AU = SolarRadius(value * 0.102719).asAU // https://en.wikipedia.org/wiki/Jupiter_radius (19 Sep 2016)
+  def *(n: Double): JupiterRadius = JupiterRadius(value * n)
+}
+
 final case class SolarRadius(value: Double) extends AnyVal {
   def asAU: AU = AU(value * 0.00465047) // https://en.wikipedia.org/wiki/Solar_radius (17 Sep 2016)
   def *(n: Double): SolarRadius = SolarRadius(value * n)
@@ -21,11 +25,9 @@ final case class AU(value: Double) extends AnyVal {
   def *(e: Eccentricity): AU = AU(value * e.value)
 }
 
-
 final case class Degree(value: Double) extends AnyVal {
   def +(d: Degree) = Degree(value + d.value)
 }
-
 
 final case class Eccentricity(value: Double) {
   def squared = Eccentricity(value * value)

@@ -16,6 +16,7 @@ object App extends SVGPrimitives {
 
   // We scale the system into these units when drawing
   val viewRadius: Double = 100
+
   val systemRadius = AU(2)
   val auScaleFactor = viewRadius / systemRadius.value
   implicit class scaleDistance(au: AU) {
@@ -23,8 +24,13 @@ object App extends SVGPrimitives {
   }
 
   // Astronimical bodies are tiny compared to the size of the system, so we exaggerate when drawing
-  implicit class enlargeStarSize(r: SolarRadius) {
-    def exaggerate: SolarRadius = r * 10
+  implicit class enlargeStar(r: SolarRadius) {
+    def exaggerate: SolarRadius = r * 20
+  }
+
+  implicit class enlargePlanet(r: JupiterRadius) {
+    // Limit at 0.5 Jr
+    def exaggerate: JupiterRadius = (if (r.value < 0.5) r else JupiterRadius(0.5)) * 500
   }
 
   val hz = annulus( AU(0.95).scaled, AU(1.66).scaled )
@@ -50,12 +56,11 @@ object App extends SVGPrimitives {
     val radians = p.longitude.value * 0.0174
     val x = p.semiMajorAxis * Math.cos(radians)
     val y = p.semiMinorAxis * Math.sin(radians)
-    
-    val body = circle(x.scaled + p.f.scaled, y.scaled, 1, p.periastron)
+
+    val body = circle(x.scaled + p.f.scaled, y.scaled, p.radius.exaggerate.asAU.scaled, p.periastron)
     svgElement.appendChild(body.render)
   }
 
   Systems.sun.planets.foreach(draw)
-
   }
 }

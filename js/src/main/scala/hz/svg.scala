@@ -4,6 +4,9 @@ import scalatags.JsDom._,  implicits._
 
 trait SVGPrimitives {
 
+  /**
+  Construct an SVG nodel for a circle, centered at (x,y) with co-ordinates rotated around (0,0) by the given angle.
+  **/
   def circle(
     x        : Double,
     y        : Double,
@@ -42,24 +45,22 @@ trait SVGPrimitives {
   }
 
   /**
-  Construct an SVG node representing an annulus (or ring), 
+  Construct an SVG node representing an annulus (or ring),
   where
-    the inner radius is the hole, 
+    the inner radius is the hole,
     and the outer radius is to the edge of the ring.
 
 {{{
-                                           
-    Inner Radius      Outer Radius       
-                                         
-     ,ad8888ba,        ,ad8888ba,        
-    d8"'    `"8b      d8"'    `"8b       
-   d8'        `8b    d8'        `8b      
-   88<----     88    <------     88      
-   88          88    88          88      
-   Y8,        ,8P    Y8,        ,8P      
-    Y8a.    .a8P      Y8a.    .a8P       
-     `"Y8888Y"'        `"Y8888Y"'        
-  
+    Inner Radius      Outer Radius
+
+     ,ad8888ba,        ,ad8888ba,
+    d8"'    `"8b      d8"'    `"8b
+   d8'        `8b    d8'        `8b
+   88<----     88    <------     88
+   88          88    88          88
+   Y8,        ,8P    Y8,        ,8P
+    Y8a.    .a8P      Y8a.    .a8P
+     `"Y8888Y"'        `"Y8888Y"'
   }}}
 
   */
