@@ -22,7 +22,10 @@ final case class AU(value: Double) extends AnyVal {
 }
 
 
-final case class Degree(value: Double) extends AnyVal
+final case class Degree(value: Double) extends AnyVal {
+  def +(d: Degree) = Degree(value + d.value)
+}
+
 
 final case class Eccentricity(value: Double) {
   def squared = Eccentricity(value * value)

@@ -66,7 +66,9 @@ final case class Star(
 final case class Planet(
   name          : NonEmptyList[Name[Planet]],
   semiMajorAxis : AU,
-  e             : Eccentricity
+  e             : Eccentricity,
+  periastron    : Degree,
+  longitude     : Degree
 ) {
 
   import UnitOps._
